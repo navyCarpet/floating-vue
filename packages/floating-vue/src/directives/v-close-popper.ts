@@ -1,9 +1,9 @@
-import { supportsPassive } from '../util/env'
+import { supportsPassive, isIOS } from '../util/env'
 
 function addListeners (el) {
   el.addEventListener('mousedown', addEventProps)
   el.addEventListener('click', addEventProps)
-  el.addEventListener('touchstart', onTouchStart, supportsPassive
+  el.addEventListener('touchstart', onTouchStart, supportsPassive && !isIOS
     ? {
       passive: true,
     }
